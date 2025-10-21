@@ -1,0 +1,9 @@
+*.sqlite*
+vendor/
+.env
+.env.*backup
+.DS_Store
+.idea/
+*.log
+storage/
+*.cache
