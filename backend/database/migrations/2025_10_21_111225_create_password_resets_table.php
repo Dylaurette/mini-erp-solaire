@@ -4,19 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateSiteStocksTable extends Migration
 {
-    public function up(): void
+    public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('site_stocks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('site_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->integer('quantity')->default(0);
+            $table->timestamps();
+            $table->unique(['site_id','product_id']);
         });
     }
 
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('site_stocks');
     }
-};
+}
