@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSiteStocksTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     public function up()
     {
@@ -23,3 +23,4 @@ class CreateSiteStocksTable extends Migration
         Schema::dropIfExists('site_stocks');
     }
 }
+
