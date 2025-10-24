@@ -8,19 +8,16 @@ class CreatePasswordResetsTable extends Migration
 {
     public function up()
     {
-        Schema::create('site_stocks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('site_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-            $table->integer('quantity')->default(0);
-            $table->timestamps();
-            $table->unique(['site_id','product_id']);
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('site_stocks');
+        Schema::dropIfExists('password_resets');
     }
 }
 
