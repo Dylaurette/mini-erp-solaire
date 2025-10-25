@@ -1,3 +1,4 @@
+<?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SiteController;
 use App\Http\Controllers\Api\ProductController;
