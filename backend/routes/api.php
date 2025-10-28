@@ -11,10 +11,16 @@ use App\Http\Controllers\Api\SaleItemController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\AlertController;
 use App\Http\Controllers\Api\AuditLogController;
+use App\Http\Controllers\AuthController;
 
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/test', fn() => response()->json(['ok' => true]));
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/me', [AuthController::class, 'me']);
+    Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('sites', SiteController::class);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('site-stocks', SiteStockController::class);
