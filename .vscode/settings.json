@@ -1,0 +1,15 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "css": "css",
+    "postcss": "css"
+  },
+  "tailwindCSS.experimental.configFile": "frontend/tailwind.config.cjs",
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw=\"([^\"]*)",
+    "tw={\"([^\"}]*)",
+    "className=\"([^\"]*)",
+    "className={`([^`]*)"
+  ]
+}
