@@ -2,22 +2,16 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
-class AdminSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'admin@demo.test'],
-            [
-                'name' => 'Admin Demo',
-                'password' => Hash::make('password123'),
-                'role' => 'admin',
-                'phone' => '0100000000',
-            ]
-        );
+       $this->call(InitialSiteProductUserSeeder::class);
     }
 }
