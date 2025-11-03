@@ -1,17 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "types": ["react", "react-dom"],
-    "module": "ESNext",
-    "target": "ESNext",
-    "moduleResolution": "Node",
-    "allowJs": false,
-    "strict": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }
