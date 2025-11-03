@@ -5,6 +5,7 @@ const api = axios.create({
   withCredentials: true, // important pour Sanctum (cookies, sessions)
   headers: {
     "Content-Type": "application/json",
+    Accept: "application/json",
   },
 });
 
