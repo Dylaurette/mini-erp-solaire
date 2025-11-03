@@ -9,6 +9,7 @@ export async function createQuote(payload: any, file?: File | null) {
   form.append("devices", JSON.stringify(payload.devices || []));
   if (file) form.append("file", file);
 
+  // Note: ne pas set Content-Type, le browser posera boundary automatiquement
   const { data } = await api.post("/api/quotes", form);
   return data;
 }
@@ -21,7 +22,6 @@ export async function createSolarQuote(payload: any, file?: File | null) {
   form.append("required_power", payload.required_power || "");
   form.append("notes", payload.notes || "");
   if (file) form.append("file", file);
-
   const { data } = await api.post("/api/quotes/solar", form);
   return data;
 }
