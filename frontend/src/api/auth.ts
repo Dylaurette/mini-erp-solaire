@@ -1,25 +1,29 @@
+// src/api/auth.ts
 import api from "./axios";
 
-// Récupère le cookie CSRF
+/**
+ * getCsrfCookie : si tu utilises Sanctum côté Laravel, il faut d'abord récupérer le cookie CSRF
+ * login : envoie les credentials au backend
+ */
 export async function getCsrfCookie() {
-  return api.get("/sanctum/csrf-cookie");
+  // endpoint Laravel : /sanctum/csrf-cookie
+  await api.get("/sanctum/csrf-cookie");
 }
 
-// Connexion
-export async function login(email: string, password: string) {
+export async function loginApi(email: string, password: string) {
+  // assure-toi que axios a withCredentials: true dans axios.ts
   await getCsrfCookie();
-  const { data } = await api.post("/api/login", { email, password });
+  const { data } = await api.post("/login", { email, password });
+  // data attendu : { user: {...}, token?: "..."} selon ton backend
   return data;
 }
 
-// Déconnexion
-export async function logout() {
-  const { data } = await api.post("/api/logout");
+export async function logoutApi() {
+  const { data } = await api.post("/logout");
   return data;
 }
 
-// Récupération de l'utilisateur connecté
-export async function getUser() {
-  const { data } = await api.get("/api/me");
+export async function meApi() {
+  const { data } = await api.get("/me");
   return data;
 }

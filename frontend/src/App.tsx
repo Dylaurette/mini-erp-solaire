@@ -7,6 +7,8 @@ import Dashboard from "./pages/Dashboard";
 import CreateQuote from "./pages/CreateQuote";
 import CreateSolarQuote from "./pages/CreateSolarQuote";
 import Forbidden from "./pages/Forbidden";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 export default function App() {
@@ -20,6 +22,9 @@ export default function App() {
           <Route path="/quotes/create-solar" element={<ProtectedRoute><CreateSolarQuote/></ProtectedRoute>} />
           <Route path="*" element={<Login/>} />
           <Route path="/forbidden" element={<Forbidden/>} />
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
+          <Route path="/reset-password" element={<ResetPassword/>} />
+
         </Routes>
       </AuthProvider>
     </BrowserRouter>
