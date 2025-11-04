@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import CreateQuote from "./pages/CreateQuote";
 import CreateSolarQuote from "./pages/CreateSolarQuote";
+import Forbidden from "./pages/Forbidden";
+
 
 export default function App() {
   return (
@@ -17,6 +19,7 @@ export default function App() {
           <Route path="/quotes/create" element={<ProtectedRoute><CreateQuote/></ProtectedRoute>} />
           <Route path="/quotes/create-solar" element={<ProtectedRoute><CreateSolarQuote/></ProtectedRoute>} />
           <Route path="*" element={<Login/>} />
+          <Route path="/forbidden" element={<Forbidden/>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
