@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\AlertController;
 use App\Http\Controllers\Api\AuditLogController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\QuoteController;
 
 
 Route::post('/register', [AuthController::class, 'register']);
