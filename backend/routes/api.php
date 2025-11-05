@@ -15,6 +15,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\QuoteController;
 
 
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/test', fn() => response()->json(['ok' => true]));
@@ -33,4 +34,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('payments', PaymentController::class);
     Route::apiResource('alerts', AlertController::class);
     Route::apiResource('audit-logs', AuditLogController::class);
+    Route::apiResource('quotes', QuoteController::class);
+    Route::post('quotes/solar', [QuoteController::class, 'storeSolar']);    
 });
